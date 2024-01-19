@@ -16,14 +16,26 @@ Pour exécuter cette application, vous aurez besoin de :
 Pour configurer le projet localement, suivez ces étapes :
 
 1. **Cloner le Dépôt :**
-   ```sh
+   ```bash
    git clone https://github.com/ArthurDEV44/evaluation-devops-3wa.git
    cd evaluation-devops-3wa
    ```
 
 2. **Installer les Dépendances :**
-   ```sh
+   ```bash
    npm install
+   ```
+3. **Créer la base de donnée PostgreSql nécessaire avec PostgreSql ou dans pgAdmin**
+   ```sql
+   CREATE DATABASE tpDevops3wa
+   ```
+
+4. **Créer la table nécessaire avec PostgreSql ou dans pgAdmin :**
+   ```sql
+   CREATE TABLE in_memory_storage (
+      product_name VARCHAR(255) PRIMARY KEY,
+      quantity INTEGER NOT NULL
+   )
    ```
 
 ## Exécution de l'Application
@@ -75,7 +87,3 @@ npm test -- --coverage
 - `Dockerfile`: Configuration pour construire l'image Docker de l'application.
 - `docker-compose.yml`: Configuration pour orchestrer l'application et la base de données avec Docker.
 - `.github/workflows/nodejs.yml`: Configuration GitHub Actions pour l'intégration continue.
-
-## Contribuer au Projet
-
-Pour contribuer au projet, créez une branche pour chaque nouvelle fonctionnalité ou correction, puis soumettez une pull request pour intégrer vos changements.

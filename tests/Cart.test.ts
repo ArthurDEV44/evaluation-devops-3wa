@@ -20,7 +20,7 @@ describe('Cart', () => {
     test('buy should aggregate quantities of the same product', () => {
         cart.buy(apple, 1);
         cart.buy(apple, 2);
-        expect(cart.total()).toBe(30); // 3 apples at $10 each
+        expect(cart.total()).toBe(30);
     });
 
     test('reset should empty the cart', () => {
@@ -33,12 +33,12 @@ describe('Cart', () => {
         cart.buy(apple, 1);
         cart.buy(orange, 1);
         cart.restore('apple');
-        expect(cart.total()).toBe(15); // Only the orange remains
+        expect(cart.total()).toBe(15);
     });
 
     test('total should return the correct total amount', () => {
-        cart.buy(apple, 2); // $20
-        cart.buy(orange, 1); // $15
+        cart.buy(apple, 2);
+        cart.buy(orange, 1);
         expect(cart.total()).toBe(35);
     });
 });

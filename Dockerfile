@@ -1,20 +1,26 @@
-# Utiliser une image Node.js officielle comme image de base
+# Utilisation de l'image Node.js LTS
 FROM node:lts
 
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+# Installe TypeScript globalement
+RUN npm install -g typescript
 
-# Copier les fichiers package.json et package-lock.json
+# Défini le répertoire de travail
+WORKDIR /usr/src/app
+
+# Copie les fichiers de dépendances
 COPY package*.json ./
 
-# Installer les dépendances du projet
+# Installe les dépendances
 RUN npm install
 
-# Copier les fichiers du projet dans le conteneur
+# Copie les fichiers sources
 COPY . .
 
-# Exposer le port sur lequel l'application s'exécute
+# Compile les fichiers TypeScript en JavaScript
+RUN tsc
+
+# Expose le port 3000
 EXPOSE 3000
 
 # Commande pour démarrer l'application
-CMD ["npm", "start"]
+CMD ["node", "dist/Server.js"]

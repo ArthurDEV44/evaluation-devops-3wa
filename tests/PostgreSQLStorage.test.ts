@@ -22,10 +22,10 @@ describe('PostgreSQLStorage', () => {
         expect(mockPool.query).toHaveBeenCalledWith(expect.any(String), ['apple', 10]);
     });
 
-    test('restore should execute query to remove a product', async () => {
-        await storage.restore('apple');
-        expect(mockPool.query).toHaveBeenCalledWith(expect.any(String), ['apple']);
-    });
+    test('resetTable should execute query to delete all products', async () => {
+        await storage.resetTable();
+        expect(mockPool.query).toHaveBeenCalledWith('DELETE FROM in_memory_storage');
+    });    
 
     test('reset should execute query to empty the storage', async () => {
         await storage.reset();

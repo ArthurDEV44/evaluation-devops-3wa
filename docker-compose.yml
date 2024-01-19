@@ -5,7 +5,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgres://postgres:password@db:5432/mydb
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     depends_on:
       - db
   db:
@@ -15,7 +18,7 @@ services:
     environment:
       POSTGRES_DB: mydb
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: Orleans45*
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
