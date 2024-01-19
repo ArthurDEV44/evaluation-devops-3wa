@@ -26,6 +26,10 @@ router.post('/cart/add', async (ctx: Context) => {
     const { name, price, quantity } = ctx.request.body as CartAddRequest;
     const product = new Product(name, price);
     cart.buy(product, quantity);
+
+    // Met à jour la base de données PostgreSQL
+    await postgresStorage.setValue(name, quantity);
+
     ctx.status = 200;
     ctx.body = { message: 'Produit ajouté au panier', cart: cart };
 });
@@ -37,7 +41,7 @@ router.get('/cart/total', async (ctx: Context) => {
 
 // Réinitialiser le panier
 router.post('/cart/reset', async (ctx: Context) => {
-    cart.reset();
+    await postgresStorage.resetTable();
     ctx.status = 200;
     ctx.body = { message: 'Panier réinitialisé' };
 });
