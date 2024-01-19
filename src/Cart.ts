@@ -1,3 +1,4 @@
+// Cart.ts
 import { Product } from './Product';
 
 interface CartItem {
