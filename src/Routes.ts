@@ -1,5 +1,3 @@
-// src/routes.ts
-
 import Router from 'koa-router';
 import { Context } from 'koa';
 import { Cart } from './Cart';
