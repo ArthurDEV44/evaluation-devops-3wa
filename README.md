@@ -1,7 +1,3 @@
-Voici un exemple de contenu pour votre fichier `README.md` qui couvre la configuration, l'exécution, les tests et l'utilisation de votre application Koa avec Docker et Docker Compose. Vous pouvez ajuster ce contenu pour qu'il corresponde précisément à votre projet.
-
----
-
 # Mon Application Node.js avec Koa
 
 Ce projet est une application Node.js utilisant Koa, configurée pour une utilisation avec Docker et GitHub Actions pour l'intégration continue.
